@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>开元棋牌 | 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f9fc;
+            color: #1a2d3c;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2rem 1.25rem;
+            flex: 1;
+        }
+
+        /* header / hero 开篇短句 */
+        .hero {
+            background: linear-gradient(145deg, #e6f2f5 0%, #cee8ed 100%);
+            border-radius: 24px;
+            padding: 3rem 2rem 2.8rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 16px rgba(26, 128, 140, 0.08);
+            border: 1px solid rgba(58, 176, 186, 0.15);
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: #1f7a82;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            margin-bottom: 1.4rem;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #0a2e38;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: #1f7a82;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #2a4450;
+            max-width: 640px;
+            margin-bottom: 0.25rem;
+        }
+
+        /* 承接段落 — 网格卡片风格 */
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        @media (min-width: 640px) {
+            .story-section {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .story-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.8rem 1.8rem 2rem;
+            box-shadow: 0 2px 12px rgba(0, 60, 70, 0.04);
+            border: 1px solid #e1eef2;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .story-card:hover {
+            box-shadow: 0 8px 24px rgba(31, 122, 130, 0.06);
+        }
+
+        .story-card .card-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: #d7ecf0;
+            color: #1f7a82;
+            border-radius: 14px;
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
+
+        .story-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0b3742;
+            margin-bottom: 0.5rem;
+        }
+
+        .story-card p {
+            font-size: 0.98rem;
+            color: #2d4a57;
+            margin-bottom: 0.4rem;
+        }
+
+        /* 特点列表 (点缀蓝绿) */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 1.8rem;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem 2rem 2.2rem;
+            margin: 2rem 0;
+            border: 1px solid #dae9ed;
+            box-shadow: 0 2px 8px rgba(31, 122, 130, 0.04);
+        }
+
+        @media (max-width: 480px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+                padding: 1.5rem 1.5rem 1.8rem;
+            }
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .feature-dot {
+            flex-shrink: 0;
+            width: 10px;
+            height: 10px;
+            background: #3bb0ba;
+            border-radius: 50%;
+            margin-top: 0.6rem;
+            opacity: 0.7;
+        }
+
+        .feature-item span {
+            font-size: 1rem;
+            color: #1e3d48;
+            line-height: 1.5;
+        }
+
+        .feature-item small {
+            display: block;
+            font-size: 0.85rem;
+            color: #4d6f7c;
+            margin-top: 0.1rem;
+        }
+
+        /* 温和结尾 / FAQ摘要 */
+        .closing-note {
+            background: #e4f1f5;
+            border-radius: 20px;
+            padding: 2.2rem 2rem 2.5rem;
+            margin: 2.5rem 0 1.8rem;
+            border-left: 4px solid #2b9ca8;
+        }
+
+        .closing-note h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #0d3742;
+            margin-bottom: 1rem;
+        }
+
+        .closing-note p {
+            font-size: 1rem;
+            color: #1e3f4b;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-mini {
+            list-style: none;
+            margin-top: 1.2rem;
+        }
+
+        .faq-mini li {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid rgba(58, 176, 186, 0.15);
+            font-size: 0.95rem;
+            color: #19424f;
+        }
+
+        .faq-mini li:last-child {
+            border-bottom: none;
+        }
+
+        .faq-mini li strong {
+            color: #16626b;
+            font-weight: 500;
+        }
+
+        .inline-link {
+            color: #16626b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #3bb0ba;
+            padding-bottom: 1px;
+            transition: border-color 0.2s;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #0d4e57;
+            color: #0b4350;
+        }
+
+        /* 页脚 */
+        .footer-note {
+            text-align: center;
+            font-size: 0.82rem;
+            color: #6b8c96;
+            border-top: 1px solid #dae8ec;
+            padding-top: 1.8rem;
+            margin-top: 0.8rem;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 500px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .hero {
+                padding: 2.2rem 1.2rem 2rem;
+            }
+            .story-card {
+                padding: 1.5rem 1.2rem;
+            }
+            .closing-note {
+                padding: 1.8rem 1.2rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- hero 开篇短句 -->
+    <div class="hero">
+        <div class="hero-label">稳定入口 · 叙述</div>
+        <h1>步入一个 <em>清晰</em> 的入口</h1>
+        <p>有些页面不需要喧哗，只需一条安稳的路标。<br>这里，我们简单说明「开元棋牌」是什么、通向哪里。</p>
+    </div>
+
+    <!-- 两个承接段落 (网格卡片) -->
+    <div class="story-section">
+        <div class="story-card">
+            <div class="card-icon">⟡</div>
+            <h3>页面即入口</h3>
+            <p>每一处设计都在传递同一件事：一个稳定、直达的路径。你正在阅读的页面，本身就是一个安静的指南——它告诉你如何找到 <a href="https://space-ssl-kaiyuan.com" class="inline-link">开元棋牌</a> 所在的位置，不绕弯，不堆砌。</p>
+        </div>
+        <div class="story-card">
+            <div class="card-icon">◉</div>
+            <h3>从何说起</h3>
+            <p>品牌背后的结构往往比表象更克制。这个站点并非浮于表面的展示，而是一个真实的落点。页面内容围绕「稳定」展开，我们希望每位访客都能在第一时间理解它的属性与边界。</p>
+        </div>
+    </div>
+
+    <!-- 特点列表 (蓝绿点缀) -->
+    <div class="feature-grid">
+        <div class="feature-item">
+            <div class="feature-dot"></div>
+            <span>直连无重定向 <small>页面直达目标地址，中间层透明</small></span>
+        </div>
+        <div class="feature-item">
+            <div class="feature-dot"></div>
+            <span>协议标识明确 <small>HTTPS / SSL 加密通道，连接可验证</small></span>
+        </div>
+        <div class="feature-item">
+            <div class="feature-dot"></div>
+            <span>结构信息清晰 <small>入口与说明分离，访问意图一目了然</small></span>
+        </div>
+        <div class="feature-item">
+            <div class="feature-dot"></div>
+            <span>适配多端 <small>移动优先布局，卡片在窄屏下依然易读</small></span>
+        </div>
+    </div>
+
+    <!-- 温和结尾 + FAQ摘要 -->
+    <div class="closing-note">
+        <h2>关于这个页面的几点说明</h2>
+        <p>这是一个介绍性质的静态页，不涉及任何游戏或交易逻辑。它的核心功能是作为一条稳定的文字线索——当你想确认「开元棋牌」的地址时，这里提供了可溯源的指引。</p>
+        <ul class="faq-mini">
+            <li><strong>Q： 页面中的链接安全吗？</strong> — 链接指向的域名采用 SSL 证书，通信加密，地址栏可查。</li>
+            <li><strong>Q： 为什么强调“稳定入口”？</strong> — 入口本身不频繁变动，减少因链接失效而产生的困惑。</li>
+            <li><strong>Q： 这个页面会收集信息吗？</strong> — 纯静态展示，不设表单、不追踪、不存 cookie。</li>
+        </ul>
+        <p style="margin-top:1rem;">如需直接访问，可点击上文嵌入的 <a href="https://space-ssl-kaiyuan.com" class="inline-link">开元棋牌</a> 链接；它始终指向同一个位置。</p>
+    </div>
+
+    <div class="footer-note">
+        叙述页 · 稳定入口说明 &nbsp;|&nbsp; 基于内容原则构建
+    </div>
+</div>
+</body>
+</html>
